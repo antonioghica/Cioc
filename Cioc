@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+ifstream f("cioc.in");
+ofstream g("cioc.out");
+int main()
+{
+    int n,i,k,c,kfinal;
+    long long maxk;
+    f>>c>>n>>k;
+    long long v[n],a[n];
+    for(i=0;i<n;i++)
+    {
+        f>>v[i];
+        a[i]=v[i];
+    }
+    sort(a,a+n);
+    while(a[k]==a[k-1]&&k<n)
+        ++k;
+    kfinal=k;
+    maxk=a[k-1];
+    if(c==1)
+        g<<kfinal;
+    else
+    {
+        for(i=0;i<n;i++)
+        {
+            g<<v[i]<<" ";
+            if(v[i]<=maxk)
+                g<<2*v[i]<<" ";
+        }
+    }
+    f.close();
+    g.close();
+}
